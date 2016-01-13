@@ -3,29 +3,29 @@
 -> x = mul(x, x)
 (godebug) list
 
-
-    func main() {
-    	x := mul(1, 2)
-    	_ = "breakpoint"
---> 	x = mul(x, x)
-    	if x == 4 {
-    		fmt.Println("It works! x == 4.")
-    	} else if n := 2; n == 3 {
-    		fmt.Println("Math is broken. Ah!")
+3: 
+4:     func main() {
+5:     	x := mul(1, 2)
+6:     	_ = "breakpoint"
+7: --> 	x = mul(x, x)
+8:     	if x == 4 {
+9:     		fmt.Println("It works! x == 4.")
+10:     	} else if n := 2; n == 3 {
+11:     		fmt.Println("Math is broken. Ah!")
 
 (godebug) step
 -> var x int
 (godebug) list
 
-    	return n + m
-    }
-
-    func mul(n, m int) int {
---> 	var x int
-    	for i := 0; i < m; i++ {
-    		x = add(x, m)
-    	}
-    	return x
+24:     	return n + m
+25:     }
+26: 
+27:     func mul(n, m int) int {
+28: --> 	var x int
+29:     	for i := 0; i < m; i++ {
+30:     		x = add(x, m)
+31:     	}
+32:     	return x
 
 (godebug) n
 -> for i := 0; i < m; i++ {
@@ -33,14 +33,14 @@
 -> x = add(x, m)
 (godebug) l
 
-
-    func mul(n, m int) int {
-    	var x int
-    	for i := 0; i < m; i++ {
---> 		x = add(x, m)
-    	}
-    	return x
-    }
+26: 
+27:     func mul(n, m int) int {
+28:     	var x int
+29:     	for i := 0; i < m; i++ {
+30: --> 		x = add(x, m)
+31:     	}
+32:     	return x
+33:     }
 
 (godebug) continue
 What's going on? x == 16

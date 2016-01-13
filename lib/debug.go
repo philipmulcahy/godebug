@@ -397,7 +397,7 @@ func printContext(lines []string, line, contextCount int) {
 		}
 		if i >= 0 && i < len(lines) {
 			line := strings.TrimRightFunc(prefix+lines[i], unicode.IsSpace)
-			fmt.Println(line)
+			fmt.Printf("%d: %s\n", i, line)
 		}
 	}
 	fmt.Println()

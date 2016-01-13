@@ -3,15 +3,15 @@
 -> go func() {
 (godebug) list
 
-
-    	// -------------------
-    	// Check simple cases.
-
---> 	go func() {
-    		select {}
-    	}()
-
-    	select {
+24: 
+25:     	// -------------------
+26:     	// Check simple cases.
+27: 
+28: --> 	go func() {
+29:     		select {}
+30:     	}()
+31: 
+32:     	select {
 
 (godebug) step
 -> select {
@@ -133,15 +133,15 @@ hello
 -> case r1 = <-foo():
 (godebug) list
 
-    		_, _ = r2, ok
-
-    	case <-foo():
-    	case _ = <-foo():
---> 	case r1 = <-foo():
-    	case r2 := <-foo():
-    		_ = r2
-
-    	case _, _ = <-foo():
+96:     		_, _ = r2, ok
+97: 
+98:     	case <-foo():
+99:     	case _ = <-foo():
+100: --> 	case r1 = <-foo():
+101:     	case r2 := <-foo():
+102:     		_ = r2
+103: 
+104:     	case _, _ = <-foo():
 
 (godebug) n
 -> case r2 := <-foo():
@@ -164,15 +164,15 @@ hello
 -> case r2, ok := <-c[9]: // This is the case that will proceed.
 (godebug) list
 
-    	case _, ok = <-c[6]:
-    	case _, ok1 := <-c[7]:
-    		_ = ok1
-    	case r1, ok = <-c[8]:
---> 	case r2, ok := <-c[9]: // This is the case that will proceed.
-    		_, _ = r2, ok
-
-    	case <-foo():
-    	case _ = <-foo():
+91:     	case _, ok = <-c[6]:
+92:     	case _, ok1 := <-c[7]:
+93:     		_ = ok1
+94:     	case r1, ok = <-c[8]:
+95: --> 	case r2, ok := <-c[9]: // This is the case that will proceed.
+96:     		_, _ = r2, ok
+97: 
+98:     	case <-foo():
+99:     	case _ = <-foo():
 
 (godebug) n
 -> _, _ = r2, ok
